@@ -1,0 +1,21 @@
+version: '3.8'
+
+networks:
+  net_nextcloud:
+
+services:
+  nextcloud-database:
+    extends:
+      file: ${NEXTCLOUD_DCPATH}
+      service: nextcloud-database
+    networks:
+      - net_nextcloud
+  
+  nextcloud-app:
+    extends:
+      file: ${NEXTCLOUD_DCPATH}
+      service: nextcloud-app
+    networks:
+      - net_nextcloud
+    ports:
+      - ${NEXTCLOUD_PORT}:80

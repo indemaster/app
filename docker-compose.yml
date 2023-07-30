@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  indemaster-app:
+    image: nginx:alpine 
+    container_name: indemaster-app
+    hostname: indemaster-app
+    volumes:
+      - ./dist/indemaster-app:/usr/share/nginx/html
+    ports:
+      - ${INDEMASTER_APP_PORT}:80
